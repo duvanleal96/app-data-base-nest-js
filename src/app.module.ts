@@ -2,6 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DetalleFacturaEntity } from './entities/detalle.factura.entity';
+import { FacturaEntity } from './entities/factura.entity';
 
 @Module({
   imports: [
@@ -12,8 +14,8 @@ import { AppService } from './app.service';
       username: 'root',
       password: '',
       database: 'facturacion',
-      entities: [],
-      synchronize: true,
+      entities: [DetalleFacturaEntity, FacturaEntity],
+      synchronize: false,
     }),
   ],
   controllers: [AppController],
